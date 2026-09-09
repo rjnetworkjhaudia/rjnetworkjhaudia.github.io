@@ -364,10 +364,15 @@
       </li>
     </ol>
 
-    <div class="grid sm:grid-cols-2 gap-3 mb-6">
-      <div class="rounded-2xl p-4" style="background:color-mix(in srgb, var(--surface-strong) 70%, transparent); border:1px solid var(--border)">
-        <p class="text-[12px] font-semibold" style="color:var(--text-dim)">Merchant Number</p>
-        <p class="font-bold text-lg" style="color:var(--text)">01714-019016</p>
+<div class="rounded-2xl p-4 flex items-center justify-between gap-2" style="background:color-mix(in srgb, var(--surface-strong) 70%, transparent); border:1px solid var(--border)">
+        <div>
+          <p class="text-[12px] font-semibold" style="color:var(--text-dim)">Merchant Number</p>
+          <p id="merchantNumber" class="font-bold text-lg" style="color:var(--text)">01714-019016</p>
+        </div>
+        <button type="button" onclick="copyNumber()" id="copyBtn" class="px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all" style="background:color-mix(in srgb, var(--cyan) 15%, transparent); color:var(--cyan); border:1px solid color-mix(in srgb, var(--cyan) 30%, transparent);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span id="copyBtnText">Copy</span>
+        </button>
       </div>
       <div class="rounded-2xl p-4" style="background:color-mix(in srgb, var(--surface-strong) 70%, transparent); border:1px solid var(--border)">
         <p class="text-[12px] font-semibold" style="color:var(--text-dim)">Account Type</p>
@@ -595,6 +600,17 @@
     const url = 'https://wa.me/8801714019016?text=' + encodeURIComponent(message);
     window.open(url, '_blank');
   });
+  function copyNumber() {
+    const rawNumber = "01714019016"; // হাইফেন ছাড়া পিওর নম্বর
+    navigator.clipboard.writeText(rawNumber).then(() => {
+      const btnText = document.getElementById('copyBtnText');
+      btnText.textContent = 'Copied!';
+      
+      setTimeout(() => {
+        btnText.textContent = 'Copy';
+      }, 2000);
+    });
+  }
 </script>
 
 </body>
