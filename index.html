@@ -31,7 +31,6 @@
     color:var(--text);
     min-height:100vh;
     overflow-x:hidden;
-    padding-bottom:64px; /* space for fixed branding bar */
   }
   .font-display{ font-family:'Baloo Da 2', 'Hind Siliguri', sans-serif; }
 
@@ -159,19 +158,14 @@
     .header-social{ width:34px !important; height:34px !important; }
   }
 
-  /* ---------- Fixed branding bar ---------- */
+  /* ---------- Branding logo (inline in footer) ---------- */
   .brand-bar{
-    position:fixed; left:0; right:0; bottom:0; z-index:50;
     display:flex; align-items:center; justify-content:center;
-    padding:8px 12px;
-    background: color-mix(in srgb, var(--surface-strong) 92%, transparent);
-    border-top:1px solid var(--border);
-    backdrop-filter: blur(16px) saturate(140%);
-    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    margin-top:14px;
   }
-  .brand-bar a{ display:flex; align-items:center; transition: transform .15s ease; }
+  .brand-bar a{ display:inline-flex; align-items:center; transition: transform .15s ease; }
   .brand-bar a:hover{ transform: scale(1.05); }
-  .brand-bar img{ height:26px; width:auto; object-fit:contain; display:block; }
+  .brand-bar img{ width:100%; max-width:140px; height:auto; object-fit:contain; display:block; }
 
   /* ---------- Floating "Back to Home" button ---------- */
   .float-home-btn{
@@ -505,16 +499,14 @@
     <p class="mt-1">☎ : <a href="tel:09639019016" class="font-semibold" style="color:var(--cyan)">09639-019016</a></p>
     <p class="mt-3">© <span id="year"></span> RJ NETWORK — All rights reserved.</p>
     <p class="mt-1 font-semibold" style="color:var(--text)">A CREATION OF — RAKIBUL ISLAM RABBI</p>
+    <div class="brand-bar">
+      <a href="https://your-creator-website.com" target="_blank" rel="noopener" aria-label="RAKIBUL ISLAM RABBI — Creator Website">
+        <img src="your-branding-logo.png" alt="Branding Logo">
+      </a>
+    </div>
   </footer>
 
 </main>
-
-<!-- Fixed branding logo -->
-<div class="brand-bar">
-  <a href="https://your-creator-website.com" target="_blank" rel="noopener" aria-label="RAKIBUL ISLAM RABBI — Creator Website">
-    <img src="your-branding-logo.png" alt="Branding Logo">
-  </a>
-</div>
 
 <script>
   // ---------- Footer year ----------
